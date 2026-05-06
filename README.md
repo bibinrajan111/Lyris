@@ -23,6 +23,8 @@ A high-end, responsive startup website concept for **Lyris (Aquadev subsidiary)*
 - Responsive layout from mobile to ultra-wide/TV-sized screens.
 
 ## Quick Start
+- Node.js 20+ recommended
+
 ```bash
 npm install
 npm run dev
