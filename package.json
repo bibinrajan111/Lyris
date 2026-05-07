@@ -1,6 +1,6 @@
 {
   "name": "lyris-premium-site",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,14 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "^10.7.4",
-    "@react-three/fiber": "^9.3.0",
-    "framer-motion": "^12.23.24",
-    "gsap": "^3.13.0",
     "next": "^15.4.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "three": "^0.180.0"
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
@@ -28,9 +23,5 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.2"
-  },
-  "overrides": {
-    "three-mesh-bvh": "^0.8.3",
-    "glob": "^10.4.5"
   }
 }

@@ -1,95 +1,43 @@
-'use client';
+import Link from 'next/link';
 
-import { ThreeBottle } from './components/ThreeBottle';
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-
-const stats = [
-  { label: 'Municipalities', value: 45 },
-  { label: 'Cities', value: 44 },
-  { label: 'Citizens Engaged', value: 10.09, suffix: 'M+' },
-  { label: 'Metric Tons Recycled', value: 28645, suffix: '+' }
-];
-
-export default function Home() {
-  const counterRef = useRef<HTMLDivElement>(null);
-  const [sizeIndex, setSizeIndex] = useState(0);
-  const sizes = ['300 ml', '500 ml', '750 ml', '1 L'];
-
-  useEffect(() => {
-    if (!counterRef.current) return;
-    const items = counterRef.current.querySelectorAll('[data-value]');
-    items.forEach((el) => {
-      const endVal = Number(el.getAttribute('data-value'));
-      const obj = { val: 0 };
-      gsap.to(obj, {
-        val: endVal,
-        duration: 2,
-        onUpdate: () => {
-          el.textContent = endVal > 100 ? Math.floor(obj.val).toLocaleString() : obj.val.toFixed(2);
-        }
-      });
-    });
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const section = document.getElementById('products');
-      if (!section) return;
-      const pct = Math.max(0, Math.min(1, (window.scrollY - section.offsetTop + 350) / section.clientHeight));
-      setSizeIndex(Math.min(3, Math.floor(pct * 4)));
-    };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
+export default function HomePage() {
   return (
     <>
-      <section id="home" className="section-shell grid min-h-screen items-center gap-10 lg:grid-cols-2">
-        <div>
-          <p className="text-mint tracking-[0.25em] uppercase">Lyris · Aquadev</p>
-          <h1 className="font-syne text-5xl text-white md:text-7xl">The Future of Zero-Waste Hydration.</h1>
-          <p className="mt-6 max-w-lg text-lg">Sculpted refill solutions designed for conscious cities, workplaces, and high-traffic ecosystems.</p>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1502741338009-cac2772e18bc?q=80&w=1800&auto=format&fit=crop')] bg-cover bg-center opacity-20" />
+        <div className="section-shell relative grid min-h-[72vh] items-center gap-10 lg:grid-cols-2">
+          <div>
+            <p className="mb-4 inline-block rounded-full bg-[#5d1451]/10 px-4 py-1 text-sm font-semibold text-[#5d1451]">Lyris · Aquadev</p>
+            <h1 className="font-syne text-4xl leading-tight text-[#5d1451] sm:text-5xl lg:text-6xl">Clean Water. Smart Bottles. Better Planet.</h1>
+            <p className="mt-6 max-w-xl text-lg">Lyris delivers modern hydration solutions for homes, corporates, and public ecosystems through safe water processing, reusable bottles, and sustainable distribution.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a className="brand-btn" href="tel:+919000000000">Get in Touch (Call)</a>
+              <a className="ghost-btn" href="https://wa.me/919000000000" target="_blank">Get in Touch (WhatsApp)</a>
+              <Link className="ghost-btn" href="/products-services">Explore Products</Link>
+            </div>
+          </div>
+          <div className="soft-panel p-6">
+            <h2 className="font-syne text-2xl text-[#5d1451]">Why Lyris</h2>
+            <ul className="mt-4 space-y-3">
+              <li>• Advanced water purification with quality compliance.</li>
+              <li>• Multi-size bottle lineup for every consumer segment.</li>
+              <li>• Custom rebranding options for catering and corporate events.</li>
+              <li>• Circular economy approach to reduce single-use plastic waste.</li>
+            </ul>
+          </div>
         </div>
-        <ThreeBottle scale={1 + sizeIndex * 0.06} />
       </section>
 
       <section className="section-shell">
-        <h3 className="font-syne text-3xl text-white">Auto-Scrollable Gallery</h3>
-        <div className="mt-8 flex gap-6 overflow-x-auto pb-6 [scrollbar-width:none]">
-          {['Urban Refill', 'Corporate Hydration', 'Festival Water Pods', 'Smart IoT Bottle Program'].map((card) => (
-            <article key={card} className="glass min-w-72 rounded-3xl p-6 transition hover:-translate-y-1">
-              <h4 className="font-syne text-2xl text-mint">{card}</h4>
-              <p className="mt-2">Poster concept with premium violet palette and immersive 3D depth.</p>
+        <div className="grid gap-6 md:grid-cols-3">
+          {['Purity First', 'Reliable Delivery', 'Sustainable Packaging'].map((item) => (
+            <article key={item} className="soft-panel p-6">
+              <h3 className="font-syne text-2xl text-[#5d1451]">{item}</h3>
+              <p className="mt-3">Designed for modern organizations looking for trusted hydration with premium presentation and measurable environmental impact.</p>
+              <button className="mt-5 rounded-lg border border-[#5d1451]/20 px-4 py-2 text-[#5d1451]">Learn More</button>
             </article>
           ))}
         </div>
-      </section>
-
-      <section id="about" className="section-shell">
-        <h2 className="font-syne text-4xl text-white">Bottles for Change: Circular Economy in Action</h2>
-        <p className="mt-4 max-w-3xl">Lyris powers zero-waste hydration loops where every bottle is tracked, recovered, sanitized, and refilled. Our municipal partnerships create a material circularity engine that eliminates single-use leakage while restoring community trust in public hydration.</p>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" ref={counterRef}>
-          {stats.map((s) => (
-            <div key={s.label} className="glass rounded-2xl p-5">
-              <p data-value={s.value} className="font-syne text-4xl text-mint">0</p>
-              <p className="mt-2 text-sm uppercase tracking-wide">{s.label} {s.suffix ?? '+'}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="products" className="section-shell grid items-center gap-10 lg:grid-cols-2">
-        <div>
-          <h2 className="font-syne text-4xl text-white">Products & Services</h2>
-          <p className="mt-4">Scroll-driven bottle showcase for 300 ml, 500 ml, 750 ml, and 1 L formats.</p>
-          <p className="mt-6 text-mint">Current Size: {sizes[sizeIndex]}</p>
-          <div className="mt-10 glass rounded-3xl p-6">
-            <h3 className="font-syne text-2xl text-white">Custom Branding</h3>
-            <p className="mt-3">Animated sticker-morph concept enables catering and enterprise clients to switch labels across campaign themes instantly.</p>
-          </div>
-        </div>
-        <ThreeBottle scale={0.92 + sizeIndex * 0.15} />
       </section>
     </>
   );

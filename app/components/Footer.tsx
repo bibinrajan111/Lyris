@@ -1,18 +1,26 @@
-'use client';
-
 export function Footer() {
   return (
-    <footer className="relative mt-24 overflow-hidden bg-gradient-to-b from-[#2A2240] to-[#0B1120] px-6 py-20">
-      <div className="section-shell flex flex-col gap-8">
-        <h2 className="font-syne text-5xl text-white">Hydrate. Regenerate. Repeat.</h2>
-        <p className="max-w-xl text-silver/90">Lyris by Aquadev is engineering a circular hydration economy for cities, campuses, and enterprises.</p>
-        <div className="flex gap-6 text-mint">
-          <a href="https://aquadev.in" target="_blank">Aquadev</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Instagram</a>
+    <footer className="mt-20 bg-gradient-to-r from-[#5d1451] to-[#8b2f7b] text-white">
+      <div className="section-shell grid gap-8 py-14 md:grid-cols-3">
+        <div>
+          <h3 className="font-syne text-3xl">Lyris</h3>
+          <p className="mt-3 text-white/90">A premium hydration company by Aquadev, focused on safe water access and circular packaging systems.</p>
+        </div>
+        <div>
+          <h4 className="font-semibold">Quick Links</h4>
+          <ul className="mt-3 space-y-2 text-white/90">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/products-services">Products & Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-semibold">Contact</h4>
+          <p className="mt-3 text-white/90">Call: +91 90000 00000</p>
+          <p className="text-white/90">WhatsApp: +91 90000 00000</p>
+          <p className="mt-2 text-white/90">www.aquadev.in</p>
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-0 opacity-25 [background:radial-gradient(circle_at_30%_20%,#a7f3d0_2px,transparent_2px)] [background-size:70px_70px]" />
     </footer>
   );
 }

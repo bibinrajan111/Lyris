@@ -1,22 +1,31 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="sticky top-3 z-50 px-4">
-      <nav className="glass mx-auto flex max-w-7xl items-center justify-between rounded-full px-6 py-4 text-sm">
-        <motion.div initial={{ scale: 0.9 }} animate={{ scale: [0.9, 1.05, 1] }} transition={{ duration: 1.2 }} className="font-syne text-xl text-mint">
-          Lyris
-        </motion.div>
-        <div className="hidden gap-10 md:flex tracking-[0.2em] uppercase">
-          <Link href="#home">Home</Link>
-          <Link href="#about">About</Link>
-          <Link href="#products">Products</Link>
+    <header className="sticky top-0 z-50 border-b border-[#5d1451]/10 bg-white/90 backdrop-blur">
+      <nav className="section-shell flex items-center justify-between py-4">
+        <Link href="/" className="font-syne text-2xl text-[#5d1451]">Lyris</Link>
+        <button className="md:hidden text-[#5d1451]" onClick={() => setOpen(!open)} aria-label="Open menu">☰</button>
+        <div className="hidden items-center gap-8 md:flex">
+          <Link href="/" className="hover:text-[#5d1451]">Home</Link>
+          <Link href="/about" className="hover:text-[#5d1451]">About Us</Link>
+          <Link href="/products-services" className="hover:text-[#5d1451]">Products & Services</Link>
         </div>
-        <button aria-label="menu" className="md:hidden">☰</button>
       </nav>
+      {open && (
+        <div className="border-t border-[#5d1451]/10 px-4 pb-4 md:hidden">
+          <div className="flex flex-col gap-3 pt-3 text-[#5d1451]">
+            <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+            <Link href="/about" onClick={() => setOpen(false)}>About Us</Link>
+            <Link href="/products-services" onClick={() => setOpen(false)}>Products & Services</Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

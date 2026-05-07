@@ -1,35 +1,29 @@
-# Lyris — Premium 3D Startup Website
+# Lyris Website (Build-Ready)
 
-A high-end, responsive startup website concept for **Lyris (Aquadev subsidiary)** built with **Next.js App Router**, **Tailwind CSS**, **React Three Fiber**, **GSAP**, and **Framer Motion**.
+A responsive, production-oriented Next.js website for **Lyris (Aquadev subsidiary)** with a modern **light theme** centered around the brand color `#5D1451`.
 
-## Stack
-- Next.js 14 (App Router)
-- Tailwind CSS
-- Three.js + @react-three/fiber + @react-three/drei
-- GSAP
-- Framer Motion
+## Tech Stack
+- Next.js (App Router)
 - TypeScript
+- Tailwind CSS
 
-## Features Implemented
-- Sticky glassmorphism navbar with animated logo and mobile hamburger.
-- Home hero with interactive 3D bottle (mouse-reactive + auto-rotating).
-- Dynamic premium typography with Syne + Inter.
-- Horizontal “auto-scroll style” gallery cards.
-- About section narrative rewritten around circular economy and zero-waste hydration.
-- GSAP-powered animated sustainability counters.
-- Products section with scroll-to-swap size experience for 4 bottle formats.
-- Service block for custom branding sticker morph concept.
-- Massive gradient footer with bubble-like background physics aesthetic.
-- Responsive layout from mobile to ultra-wide/TV-sized screens.
+## Pages
+- `/` Home
+- `/about` About Us
+- `/products-services` Products & Services
 
-## Quick Start
-- Node.js 20+ recommended
+## Highlights
+- Clean, modern multi-page structure (no 3D scenes).
+- Home hero with call + WhatsApp "Get in Touch" actions.
+- Lighter visual system with white backgrounds, violet gradients, and soft panels.
+- Rebranding/custom-branding content and bottle-size lineup blocks.
+- Responsive layouts from small screens to large displays.
 
+## Run Locally
 ```bash
 npm install
 npm run dev
 ```
-Then open `http://localhost:3000`.
 
 ## Build
 ```bash
@@ -37,24 +31,6 @@ npm run build
 npm run start
 ```
 
-## Project Structure
-```
-app/
-  components/
-    Footer.tsx
-    Header.tsx
-    ThreeBottle.tsx
-  globals.css
-  layout.tsx
-  page.tsx
-public/
-```
-
-## Brand Styling
-- Primary: `#967BB6` (Grape / Light Violet)
-- Secondary: Deep Navy + Charcoal tones
-- Accents: Soft Mint + Silver
-
 ## Notes
-- Replace placeholder social links as needed.
-- Replace primitive bottle geometry with imported GLTF assets for production realism.
+- Replace placeholder phone numbers with official business contacts.
+- Replace external Unsplash background URLs with licensed brand assets in `/public` for production.
