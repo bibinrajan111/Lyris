@@ -2,30 +2,31 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about Lyris mission, values, circular economy impact, and sustainability programs.'
+  description: 'Our mission, values, and strategy for long-term hydration impact.'
 };
 
-export default function AboutPage() {
+export default function About() {
   return (
-    <div className="section-shell space-y-10">
-      <section className="soft-panel p-8">
-        <h1 className="font-syne text-4xl text-[#3e0d36]">About Lyris: Bottles for Change</h1>
-        <p className="mt-4">Lyris, a subsidiary of Aquadev, was created to transform hydration from a one-time transaction into a long-term public good. We focus on purity, access, and responsible material cycles. Our teams work with city administrations, educational institutions, and private enterprises to design hydration systems that reduce waste while improving convenience and reliability.</p>
+    <div className="section-shell space-y-8">
+      <section className="soft-panel reveal p-8">
+        <h1 className="font-syne text-4xl text-[#3d1b5b]">A New Standard for Everyday Hydration</h1>
+        <p className="mt-4">Lyris was founded with one idea: safe water should be effortless, beautiful to serve, and responsible to produce. We are not just a bottle supplier—we are a hydration systems partner. Our teams design delivery networks, quality processes, and branded experiences that help organizations serve people better while reducing waste.</p>
       </section>
-
       <section className="grid gap-6 lg:grid-cols-2">
-        <article className="soft-panel p-8">
-          <h2 className="font-syne text-3xl text-[#3e0d36]">Our Values</h2>
-          <ul className="mt-4 space-y-3"><li><strong>Integrity:</strong> transparent quality checks and delivery protocols.</li><li><strong>Innovation:</strong> data-led supply planning and packaging optimization.</li><li><strong>Environmental Stewardship:</strong> circular models to reduce virgin-plastic dependence.</li></ul>
-          <h3 className="mt-8 font-syne text-2xl text-[#4a0f40]">Impact Metrics</h3>
-          <div className="mt-4 grid grid-cols-2 gap-4 text-center">
-            <div className="rounded-2xl bg-[#5d1451]/5 p-4"><p className="text-3xl font-bold text-[#5d1451]">45+</p><p>Municipalities</p></div>
-            <div className="rounded-2xl bg-[#5d1451]/5 p-4"><p className="text-3xl font-bold text-[#5d1451]">44</p><p>Cities</p></div>
-            <div className="rounded-2xl bg-[#5d1451]/5 p-4"><p className="text-3xl font-bold text-[#5d1451]">10.09M+</p><p>Citizens Engaged</p></div>
-            <div className="rounded-2xl bg-[#5d1451]/5 p-4"><p className="text-3xl font-bold text-[#5d1451]">28,645+</p><p>Metric Tons Recycled</p></div>
-          </div>
+        <article className="soft-panel reveal p-8">
+          <h2 className="font-syne text-3xl text-[#3d1b5b]">What We Believe</h2>
+          <ul className="mt-4 space-y-3 list-disc pl-5">
+            <li><b>Clarity in Quality:</b> Every batch should be traceable, tested, and transparent.</li>
+            <li><b>Design with Purpose:</b> Utility and aesthetics can work together in daily hydration.</li>
+            <li><b>Circular Responsibility:</b> The bottle lifecycle must reduce waste and resource pressure.</li>
+            <li><b>Human-Centered Service:</b> Fast response, flexible planning, and long-term partnerships.</li>
+          </ul>
         </article>
-        <article className="soft-panel p-0 overflow-hidden"><div className="h-full min-h-[480px] bg-auto-scroll" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop')" }} /></article>
+        <article className="soft-panel reveal overflow-hidden"><div className="h-full min-h-[420px] bg-drift" style={{backgroundImage:"linear-gradient(140deg, rgba(83,36,123,.65), rgba(177,139,223,.45)), url('https://images.unsplash.com/photo-1564419320627-8a6e5a5cf3f9?q=80&w=1600&auto=format&fit=crop')"}} /></article>
+      </section>
+      <section className="soft-panel reveal p-8">
+        <h3 className="font-syne text-3xl text-[#3d1b5b]">Impact Direction (2026–2030)</h3>
+        <p className="mt-3">We are scaling city-level refill programs, improving return rates through partner incentives, and investing in operational intelligence that predicts demand and minimizes transportation waste. Our goal is to help institutions move from disposable supply habits to measurable circular hydration systems.</p>
       </section>
     </div>
   );
