@@ -5,8 +5,15 @@ import { BrandPreview } from '../components/BrandPreview';
 import { ContactOptions } from '../components/ContactOptions';
 
 export const metadata: Metadata = {
-  title: 'Products & Services',
-  description: 'Small, medium, and large Lyris water bottles, refillable water cans, custom rebranding, catering, hospitality, and bulk water supply services.'
+  title: 'Products & Services | Bottled Water, Refillable Cans & Branding',
+  description: 'Shop Lyris small, medium, and large water bottles, refillable water cans, custom logo printed bottles, personalized labels, event branding, bulk orders, catering, and hospitality water supply.',
+  alternates: { canonical: '/products-services' },
+  keywords: ['small water bottles', 'medium water bottles', 'large water bottles', 'refillable water cans', 'custom branded water bottles', 'logo printing water bottles', 'catering water supply', 'bulk bottled water orders'],
+  openGraph: {
+    title: 'Lyris Products & Services | Bottles, Refillable Cans & Custom Branding',
+    description: 'Premium bottled water formats, refillable cans, custom branded bottles, catering supply, hospitality water solutions, and bulk orders.',
+    url: '/products-services',
+  },
 };
 
 const products = [

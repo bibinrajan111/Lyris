@@ -3,8 +3,14 @@ import { AnimatedSection } from '../components/AnimatedSection';
 import { ContactOptions } from '../components/ContactOptions';
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Discover Lyris mission, vision, values, sustainability commitment, and circular approach to responsible bottled water.'
+  title: 'About Us | Sustainable Hydration Mission & Circular Approach',
+  description: 'Learn about Lyris, a sustainable hydration brand focused on pure bottled water, responsible packaging, recycling awareness, refillable solutions, and circular economy practices.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Lyris | Sustainable Bottled Water & Circular Hydration',
+    description: 'Explore the Lyris mission, vision, values, sustainability commitment, and circular approach to responsible bottled water.',
+    url: '/about',
+  },
 };
 
 const values = [

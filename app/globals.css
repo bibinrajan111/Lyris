@@ -26,11 +26,9 @@ body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Ro
 .contact-option small { @apply block text-xs text-slate-500; }
 .social-dot { @apply grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-white/10 font-bold backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white hover:text-[#53247b]; }
 
-.motion-reveal { opacity: 0; transform: translateY(34px) scale(.985); filter: blur(8px); transition: opacity .85s ease, transform .85s cubic-bezier(.2,.8,.2,1), filter .85s ease; }
-.motion-reveal-visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-.hero-bg { background-position: center; background-size: cover; transform: scale(1.04); transition: opacity 900ms ease, transform 6200ms ease; }
-.hero-bg.opacity-100 { transform: scale(1.12); }
-.hero-arrow { @apply absolute top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white/15 text-4xl leading-none text-white backdrop-blur-xl transition hover:bg-white hover:text-[#53247b] sm:grid; }
+.motion-reveal { opacity: 0; transform: translateY(24px) scale(.992); transition: opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1); }
+.motion-reveal-visible { opacity: 1; transform: translateY(0) scale(1); }
+.hero-bg { background-position: center; background-size: cover; transform: scale(1.025); transition: opacity 950ms ease; will-change: opacity; }
 
 .shine { position: relative; overflow: hidden; }
 .shine::after { content: ''; position: absolute; inset: -120% auto auto -40%; width: 35%; height: 260%; transform: rotate(22deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.42), transparent); transition: left .8s ease; }
@@ -47,11 +45,11 @@ body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Ro
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-float-slow { animation: floatSlow 8s ease-in-out infinite; }
 .animate-slide-up { animation: slideUp .75s cubic-bezier(.2,.8,.2,1) both; }
-.bg-drift { background-size: 120% 120%; animation: drift 16s ease-in-out infinite alternate; }
+.bg-drift { background-size: cover; }
 .marquee-rail { display:flex; width:max-content; gap:1rem; animation: marquee 26s linear infinite; }
 .marquee-wrap:hover .marquee-rail { animation-play-state: paused; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
-  .motion-reveal { opacity: 1; transform: none; filter: none; }
+  .motion-reveal { opacity: 1; transform: none; }
 }

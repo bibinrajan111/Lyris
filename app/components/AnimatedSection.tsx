@@ -12,8 +12,8 @@ type AnimatedSectionProps = {
 };
 
 const reveal = {
-  hidden: { opacity: 0, y: 34, scale: 0.985, filter: 'blur(8px)' },
-  visible: { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' },
+  hidden: { opacity: 0, y: 26, scale: 0.992 },
+  visible: { opacity: 1, y: 0, scale: 1 },
 };
 
 export function AnimatedSection({ children, className = '', delay = 0, as = 'section', id }: AnimatedSectionProps) {
@@ -26,7 +26,7 @@ export function AnimatedSection({ children, className = '', delay = 0, as = 'sec
       whileInView="visible"
       viewport={{ once: true, amount: 0.16, margin: '0px 0px -8% 0px' }}
       variants={reveal}
-      transition={{ duration: 0.85, ease: [0.2, 0.8, 0.2, 1], delay: delay / 1000 }}
+      transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1], delay: delay / 1000 }}
       className={className}
     >
       {children}

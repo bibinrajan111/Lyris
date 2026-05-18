@@ -7,8 +7,14 @@ import { HeroCarousel } from './components/HeroCarousel';
 import { ThreeBottle } from './components/ThreeBottle';
 
 export const metadata: Metadata = {
-  title: 'Home',
-  description: 'Premium sustainable bottled water, refillable cans, and custom branded hydration services by Lyris.'
+  title: 'Premium Bottled Water, Refillable Cans & Custom Branded Bottles',
+  description: 'Discover Lyris premium packaged drinking water, refillable water cans, sustainable hydration programs, and custom branded bottle services for offices, events, catering, and hospitality.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Lyris | Premium Bottled Water & Custom Branded Hydration',
+    description: 'Premium packaged drinking water, refillable cans, and custom branded bottles for businesses, events, hospitality, and communities.',
+    url: '/',
+  },
 };
 
 const why = [
