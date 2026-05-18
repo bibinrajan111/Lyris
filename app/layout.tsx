@@ -2,16 +2,27 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { ScrollReveal } from './components/ScrollReveal';
+import { ScrollToTop } from './components/ScrollToTop';
+import { FloatingContact } from './components/ContactOptions';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aquadev.in'),
-  title: { default: 'Lyris | Smart Hydration Systems', template: '%s | Lyris' },
-  description: 'Lyris delivers processed drinking water, bottle distribution, and custom rebranding solutions for modern businesses and communities.',
-  keywords: ['Lyris water', 'bottle supplier', 'rebranding bottle service', 'Aquadev hydration'],
-  openGraph: { title: 'Lyris', description: 'Processed water & sustainable hydration solutions.', url: 'https://aquadev.in', siteName: 'Lyris', type: 'website' }
+  title: { default: 'Lyris | Premium Sustainable Hydration', template: '%s | Lyris' },
+  description: 'Lyris delivers premium bottled water, refillable water cans, distribution programs, and custom branded bottle services for businesses, events, and hospitality.',
+  keywords: ['Lyris water', 'bottled water supplier', 'custom branded water bottles', 'refillable water cans', 'catering water supply', 'sustainable hydration'],
+  openGraph: { title: 'Lyris', description: 'Premium processed water, refillable cans, and custom branded bottle programs.', url: 'https://aquadev.in', siteName: 'Lyris', type: 'website' }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="en"><body><ScrollReveal /><Header /><main>{children}</main><Footer /></body></html>;
+  return (
+    <html lang="en">
+      <body>
+        <ScrollToTop />
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <FloatingContact />
+      </body>
+    </html>
+  );
 }
