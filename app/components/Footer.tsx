@@ -9,7 +9,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-3"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/15"><Image src="/lyris-logo.svg" alt="" width={30} height={30} /></span><h3 className="font-syne text-4xl font-black">Lyris</h3></div>
           <p className="mt-5 max-w-xl text-white/80">Premium processed drinking water, refillable hydration systems, and custom branded bottle programs created with purity, presentation, and circular responsibility.</p>
-          <p className="mt-5 rounded-3xl border border-white/15 bg-white/10 p-4 text-sm text-white/75 backdrop-blur-xl">Sustainability statement: every Lyris experience is designed to encourage responsible use, recovery, recycling, and a second life for packaging.</p>
+          <p className="mt-5 rounded-3xl border border-white/15 bg-white/10 p-4 text-sm text-white/75">Sustainability statement: every Lyris experience is designed to encourage responsible use, recovery, recycling, and a second life for packaging.</p>
         </div>
         <div>
           <p className="font-syne text-xl font-bold">Navigate</p>

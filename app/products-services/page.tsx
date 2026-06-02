@@ -68,7 +68,7 @@ export default function ProductsServices() {
         <div className="absolute inset-0 liquid-mesh opacity-60" />
         <div className="blob -left-24 top-16 h-72 w-72 bg-cyan-300/25" />
         <div className="blob -right-28 bottom-0 h-96 w-96 bg-fuchsia-200/20" />
-        <div className="section-shell relative grid min-h-[78vh] items-center gap-12 pb-16 pt-32 lg:grid-cols-[1fr_.85fr]">
+        <div className="section-shell relative grid min-h-[calc(100svh-102px)] items-center gap-12 py-12 lg:grid-cols-[1fr_.85fr]">
           <AnimatedSection>
             <p className="text-sm font-black uppercase tracking-[.28em] text-cyan-100">Products & Services — Lyris</p>
             <h1 className="mt-5 font-syne text-5xl font-black leading-[.95] tracking-[-.05em] sm:text-6xl lg:text-7xl">Refreshment designed for every need.</h1>

@@ -30,7 +30,7 @@ export default function About() {
     <>
       <section className="about-hero relative overflow-hidden text-[#12352f]">
         <div className="absolute inset-0 opacity-70" />
-        <div className="section-shell relative grid min-h-[78vh] items-center gap-12 pb-16 pt-32 lg:grid-cols-[1.08fr_.92fr]">
+        <div className="section-shell relative grid min-h-[calc(100svh-102px)] items-center gap-12 py-12 lg:grid-cols-[1.08fr_.92fr]">
           <AnimatedSection>
             <p className="text-sm font-black uppercase tracking-[.28em] text-[#53247b]">About Lyris</p>
             <h1 className="mt-5 font-syne text-5xl font-black leading-[.95] tracking-[-.05em] sm:text-6xl lg:text-7xl">Hydration should never come at the cost of the planet.</h1>

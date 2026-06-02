@@ -57,7 +57,7 @@ export default function Home() {
     <>
       <HeroCarousel />
 
-      <section className="border-y border-[#53247b]/10 bg-white/75 backdrop-blur-xl">
+      <section className="border-y border-[#53247b]/10 bg-white/75">
         <div className="section-shell py-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <p className="text-sm font-black uppercase tracking-[.28em] text-[#53247b]">Hydration partner for</p>
