@@ -1,21 +1,54 @@
 'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { ContactOptions } from './ContactOptions';
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/products-services', label: 'Products' },
+];
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
   return (
-    <header className="sticky top-0 z-50 border-b border-[#53247b]/15 bg-white/90 backdrop-blur-lg">
-      <nav className="section-shell flex items-center justify-between py-3">
-        <Link href="/" className="flex items-center gap-3"><Image src="/lyris-logo.svg" alt="Lyris" width={36} height={36}/><span className="font-syne text-2xl text-[#53247b]">Lyris</span></Link>
-        <button onClick={()=>setOpen(!open)} className="md:hidden rounded-full border border-[#53247b]/30 px-4 py-2 text-[#53247b]">Menu</button>
-        <div className="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
-          <Link href="/">Home</Link><Link href="/about">About</Link><Link href="/products-services">Products & Services</Link>
-          <a href="tel:+919000000000" className="rounded-full brand-grad px-5 py-2 text-white">Get in Touch</a>
+    <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-5 sm:px-6">
+      <nav className="nav-shell mx-auto flex h-14 max-w-5xl items-center justify-between gap-2 px-2 sm:h-16 sm:px-3">
+        <Link href="/" className="group flex min-w-0 items-center gap-2 rounded-full py-1 pl-1 pr-3" aria-label="Lyris home">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#53247b] shadow-[0_12px_30px_rgba(83,36,123,.24)] transition group-hover:scale-105 sm:h-11 sm:w-11">
+            <Image src="/lyris-logo.svg" alt="" width={27} height={27} priority />
+          </span>
+          <span className="font-syne text-xl font-black tracking-[-.05em] text-[#321548] sm:text-2xl">Lyris</span>
+        </Link>
+
+        <div className="hidden items-center gap-1 rounded-full border border-[#53247b]/10 bg-white/60 p-1 text-sm font-black text-slate-700 backdrop-blur-xl md:flex">
+          {navItems.map((item) => {
+            const active = pathname === item.href || (item.href === '/products-services' && pathname === '/products');
+            return (
+              <Link key={item.href} href={item.href} className={`rounded-full px-4 py-2 transition ${active ? 'bg-[#53247b] text-white shadow-lg shadow-purple-900/15' : 'hover:bg-white hover:text-[#53247b]'}`}>
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
+
+        <div className="hidden md:block"><ContactOptions compact /></div>
+        <button onClick={() => setOpen((value) => !value)} className="grid h-10 w-10 place-items-center rounded-full border border-[#53247b]/15 bg-white/80 text-sm font-black text-[#53247b] shadow-sm md:hidden" aria-expanded={open} aria-controls="mobile-menu" aria-label="Toggle menu">{open ? '×' : '☰'}</button>
       </nav>
-      {open && <div className="px-4 pb-4 md:hidden"><div className="soft-panel p-4 flex flex-col gap-3 text-[#53247b]"><Link href="/">Home</Link><Link href="/about">About</Link><Link href="/products-services">Products & Services</Link><a href="tel:+919000000000" className="rounded-full brand-grad px-5 py-2 text-center text-white">Get in Touch</a></div></div>}
+
+      {open && (
+        <div id="mobile-menu" className="mx-auto mt-2 max-w-md md:hidden">
+          <div className="nav-shell flex flex-col gap-1 p-3 text-[#53247b]">
+            {navItems.map((item) => <Link onClick={() => setOpen(false)} key={item.href} href={item.href} className="rounded-2xl px-4 py-3 font-black hover:bg-white/80">{item.label}</Link>)}
+            <div className="px-1 py-2"><ContactOptions /></div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
