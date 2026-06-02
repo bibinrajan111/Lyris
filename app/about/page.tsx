@@ -28,17 +28,16 @@ const initiatives = ['Promoting responsible PET bottle disposal', 'Supporting re
 export default function About() {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#170822] text-white">
-        <div className="absolute inset-0 brand-aurora" />
-        <div className="absolute inset-0 water-grid" />
-        <div className="section-shell relative grid min-h-[72vh] items-center gap-12 py-24 lg:grid-cols-[1.08fr_.92fr]">
+      <section className="about-hero relative overflow-hidden text-[#12352f]">
+        <div className="absolute inset-0 opacity-70" />
+        <div className="section-shell relative grid min-h-[78vh] items-center gap-12 pb-16 pt-32 lg:grid-cols-[1.08fr_.92fr]">
           <AnimatedSection>
-            <p className="text-sm font-black uppercase tracking-[.28em] text-cyan-100">About Lyris</p>
+            <p className="text-sm font-black uppercase tracking-[.28em] text-[#53247b]">About Lyris</p>
             <h1 className="mt-5 font-syne text-5xl font-black leading-[.95] tracking-[-.05em] sm:text-6xl lg:text-7xl">Hydration should never come at the cost of the planet.</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-white/85">Founded to redefine bottled water, Lyris combines purity, responsibility, and innovation to support both people and the environment.</p>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-700">Founded to redefine bottled water, Lyris combines purity, responsibility, and innovation to support both people and the environment.</p>
           </AnimatedSection>
-          <AnimatedSection className="glass-card p-5">
-            <div className="min-h-[430px] rounded-[2rem] bg-drift product-image" style={{ backgroundImage: "linear-gradient(135deg, rgba(83,36,123,.12), rgba(83,36,123,.7)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1600&auto=format&fit=crop')" }} />
+          <AnimatedSection className="editorial-frame p-3">
+            <div className="min-h-[430px] rounded-[2rem] bg-drift product-image" style={{ backgroundImage: "linear-gradient(135deg, rgba(167,243,208,.18), rgba(83,36,123,.42)), url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1600&auto=format&fit=crop')" }} />
           </AnimatedSection>
         </div>
       </section>

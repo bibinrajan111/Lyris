@@ -64,21 +64,21 @@ const reasons = ['Premium Water Quality', 'Sustainable Approach', 'Custom Brandi
 export default function ProductsServices() {
   return (
     <>
-      <section className="relative overflow-hidden brand-grad text-white">
-        <div className="absolute inset-0 water-grid" />
+      <section className="product-hero relative overflow-hidden text-white">
+        <div className="absolute inset-0 liquid-mesh opacity-60" />
         <div className="blob -left-24 top-16 h-72 w-72 bg-cyan-300/25" />
-        <div className="blob -right-28 bottom-0 h-96 w-96 bg-purple-200/25" />
-        <div className="section-shell relative grid min-h-[70vh] items-center gap-12 py-24 lg:grid-cols-[1fr_.85fr]">
+        <div className="blob -right-28 bottom-0 h-96 w-96 bg-fuchsia-200/20" />
+        <div className="section-shell relative grid min-h-[78vh] items-center gap-12 pb-16 pt-32 lg:grid-cols-[1fr_.85fr]">
           <AnimatedSection>
             <p className="text-sm font-black uppercase tracking-[.28em] text-cyan-100">Products & Services — Lyris</p>
             <h1 className="mt-5 font-syne text-5xl font-black leading-[.95] tracking-[-.05em] sm:text-6xl lg:text-7xl">Refreshment designed for every need.</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-white/85">High-quality packaged drinking water solutions for individuals, businesses, events, hospitality services, and organizations of every scale.</p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row"><a href="#products" className="btn btn-light">View Products</a><a href="#branding" className="btn border border-white/25 bg-white/10 text-white hover:bg-white hover:text-[#53247b]">Brand Your Bottles</a></div>
           </AnimatedSection>
-          <AnimatedSection className="glass-card p-6 sm:p-8">
-            <div className="rounded-[2rem] bg-white p-6 text-[#321548] shadow-2xl">
+          <AnimatedSection className="glass-card overflow-hidden p-3 sm:p-4">
+            <div className="min-h-64 rounded-[2rem] bg-cover bg-center p-6 text-white shadow-2xl" style={{ backgroundImage: "linear-gradient(135deg, rgba(16,6,24,.18), rgba(83,36,123,.72)), url('https://images.unsplash.com/photo-1548839140-29a749e1cf4d?q=80&w=1200&auto=format&fit=crop')" }}>
               <p className="font-syne text-2xl font-black">From everyday hydration to customized branded water solutions.</p>
-              <p className="mt-4 leading-7 text-slate-600">Compact personal bottles, refillable water cans, or custom-branded packaging for your business or event—Lyris delivers reliable hydration with premium quality standards.</p>
+              <p className="mt-4 leading-7 text-white/80">Compact personal bottles, refillable water cans, or custom-branded packaging for your business or event—Lyris delivers reliable hydration with premium quality standards.</p>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-4 text-center"><div className="rounded-3xl bg-white/10 p-5"><b className="text-3xl">4</b><p className="text-sm text-white/70">product formats</p></div><div className="rounded-3xl bg-white/10 p-5"><b className="text-3xl">5+</b><p className="text-sm text-white/70">service lines</p></div></div>
           </AnimatedSection>
