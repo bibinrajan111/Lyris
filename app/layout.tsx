@@ -1,93 +1,64 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { ScrollToTop } from './components/ScrollToTop';
-import { FloatingContact } from './components/ContactOptions';
 
 const siteUrl = 'https://aquadev.in';
 const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'Organization',
   name: 'Lyris',
   url: siteUrl,
   logo: `${siteUrl}/lyris-logo.svg`,
-  image: `${siteUrl}/lyris-logo.svg`,
-  telephone: '+91 90000 00000',
-  description: 'Premium bottled water, refillable water cans, distribution programs, and custom branded bottle services for businesses, events, hospitality, and communities.',
+  description: 'Ultra-premium still and sparkling water programs, glass bottles, custom branding, and concierge hydration supply.',
   sameAs: [siteUrl],
-  areaServed: 'India',
   makesOffer: [
-    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Small Water Bottles' } },
-    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Medium Water Bottles' } },
-    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Large Water Bottles' } },
-    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Refillable Water Cans' } },
-    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Branded Water Bottles' } },
+    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Lyris Still Reserve' } },
+    { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Lyris Sparkling Reserve' } },
+    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Branded Water Programs' } },
   ],
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#53247b',
+  themeColor: '#07111f',
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: 'Lyris | Premium Bottled Water & Sustainable Hydration', template: '%s | Lyris' },
-  description: 'Lyris delivers premium bottled water, refillable water cans, distribution programs, and custom branded bottle services for businesses, events, catering, hospitality, and communities.',
+  title: { default: 'Lyris | Ultra-Premium Water House', template: '%s | Lyris' },
+  description: 'Luxury bottled water, source-led mineral storytelling, custom branded glass programs, and clean commerce-ready hydration experiences.',
   applicationName: 'Lyris',
   authors: [{ name: 'Lyris' }],
   creator: 'Lyris',
   publisher: 'Lyris',
-  category: 'Bottled Water Supplier',
-  keywords: [
-    'Lyris water',
-    'bottled water supplier',
-    'packaged drinking water',
-    'custom branded water bottles',
-    'logo printed water bottles',
-    'refillable water cans',
-    'bulk water delivery',
-    'catering water supply',
-    'hospitality bottled water',
-    'sustainable hydration',
-    'recyclable PET bottles',
-  ],
-  alternates: { canonical: '/', languages: { 'en-IN': '/' } },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
-  },
+  category: 'Premium Bottled Water',
+  keywords: ['luxury water', 'premium bottled water', 'glass water bottle', 'custom branded water', 'hospitality water supply', 'sparkling reserve water'],
+  alternates: { canonical: '/', languages: { 'en-US': '/' } },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } },
   icons: { icon: '/lyris-logo.svg', apple: '/lyris-logo.svg' },
   openGraph: {
-    title: 'Lyris | Premium Bottled Water & Sustainable Hydration',
-    description: 'Premium bottled water, refillable cans, custom branded bottles, and reliable water supply for businesses, events, catering, and hospitality.',
+    title: 'Lyris | Ultra-Premium Water House',
+    description: 'Still and sparkling reserve water with glass-first design, mineral transparency, and concierge supply.',
     url: siteUrl,
     siteName: 'Lyris',
-    locale: 'en_IN',
+    locale: 'en_US',
     type: 'website',
     images: [{ url: '/lyris-logo.svg', width: 512, height: 512, alt: 'Lyris' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lyris | Premium Bottled Water & Sustainable Hydration',
-    description: 'Custom branded water bottles, refillable water cans, and reliable packaged drinking water supply.',
+    title: 'Lyris | Ultra-Premium Water House',
+    description: 'Luxury still and sparkling reserve water for hospitality, office, event, and home rituals.',
     images: ['/lyris-logo.svg'],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN">
+    <html lang="en-US">
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-        <ScrollToTop />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <FloatingContact />
+        {children}
       </body>
     </html>
   );
