@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { Header } from './components/Header';
+import { FloatingContact } from './components/ContactButton';
 import { Footer } from './components/Footer';
-import { ScrollToTop } from './components/ScrollToTop';
-import { FloatingContact } from './components/ContactOptions';
+import { Header } from './components/Header';
 
 const siteUrl = 'https://aquadev.in';
 const organizationSchema = {
@@ -12,17 +11,16 @@ const organizationSchema = {
   name: 'Lyris',
   url: siteUrl,
   logo: `${siteUrl}/lyris-logo.svg`,
-  image: `${siteUrl}/lyris-logo.svg`,
+  description: 'Premium bottled water, refillable water cans, custom branded bottles, bulk orders, and catering water supply with a sustainability-first approach.',
   telephone: '+91 90000 00000',
-  description: 'Premium bottled water, refillable water cans, distribution programs, and custom branded bottle services for businesses, events, hospitality, and communities.',
-  sameAs: [siteUrl],
   areaServed: 'India',
+  sameAs: [siteUrl],
   makesOffer: [
     { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Small Water Bottles' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Medium Water Bottles' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Large Water Bottles' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Refillable Water Cans' } },
-    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Branded Water Bottles' } },
+    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Branding & Rebranding Services' } },
   ],
 };
 
@@ -35,35 +33,19 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: 'Lyris | Premium Bottled Water & Sustainable Hydration', template: '%s | Lyris' },
-  description: 'Lyris delivers premium bottled water, refillable water cans, distribution programs, and custom branded bottle services for businesses, events, catering, hospitality, and communities.',
+  description: 'Lyris provides premium bottled water, refillable cans, custom branded bottles, bulk orders, and catering water supply with sustainability at the foundation.',
   applicationName: 'Lyris',
   authors: [{ name: 'Lyris' }],
   creator: 'Lyris',
   publisher: 'Lyris',
   category: 'Bottled Water Supplier',
-  keywords: [
-    'Lyris water',
-    'bottled water supplier',
-    'packaged drinking water',
-    'custom branded water bottles',
-    'logo printed water bottles',
-    'refillable water cans',
-    'bulk water delivery',
-    'catering water supply',
-    'hospitality bottled water',
-    'sustainable hydration',
-    'recyclable PET bottles',
-  ],
+  keywords: ['Lyris water', 'premium bottled water', 'custom branded water bottles', 'refillable water cans', 'bulk water delivery', 'catering water supply', 'sustainable hydration'],
   alternates: { canonical: '/', languages: { 'en-IN': '/' } },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
-  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } },
   icons: { icon: '/lyris-logo.svg', apple: '/lyris-logo.svg' },
   openGraph: {
     title: 'Lyris | Premium Bottled Water & Sustainable Hydration',
-    description: 'Premium bottled water, refillable cans, custom branded bottles, and reliable water supply for businesses, events, catering, and hospitality.',
+    description: 'Premium bottled water, refillable cans, custom branding, bulk orders, and hospitality water supply.',
     url: siteUrl,
     siteName: 'Lyris',
     locale: 'en_IN',
@@ -73,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Lyris | Premium Bottled Water & Sustainable Hydration',
-    description: 'Custom branded water bottles, refillable water cans, and reliable packaged drinking water supply.',
+    description: 'Premium bottled water, custom branded bottles, refillable cans, and reliable supply services.',
     images: ['/lyris-logo.svg'],
   },
 };
@@ -83,7 +65,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-IN">
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-        <ScrollToTop />
         <Header />
         <main>{children}</main>
         <Footer />

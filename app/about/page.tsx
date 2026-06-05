@@ -1,88 +1,110 @@
 import type { Metadata } from 'next';
-import { AnimatedSection } from '../components/AnimatedSection';
-import { ContactOptions } from '../components/ContactOptions';
+import { ContactCTA } from '../components/ContactCTA';
+import { SourceHeritage } from '../components/SourceHeritage';
+import { FadeIn, SplitWords } from '../components/MotionPrimitives';
+import { circularApproach, coreValues } from '../data';
 
 export const metadata: Metadata = {
-  title: 'About Us | Sustainable Hydration Mission & Circular Approach',
-  description: 'Learn about Lyris, a sustainable hydration brand focused on pure bottled water, responsible packaging, recycling awareness, refillable solutions, and circular economy practices.',
+  title: 'About Us | Sustainability, Mission & Circular Approach',
+  description: 'Learn about Lyris, our company story, mission, vision, core values, sustainability commitment, circular economy process, and promise.',
   alternates: { canonical: '/about' },
-  openGraph: {
-    title: 'About Lyris | Sustainable Bottled Water & Circular Hydration',
-    description: 'Explore the Lyris mission, vision, values, sustainability commitment, and circular approach to responsible bottled water.',
-    url: '/about',
-  },
 };
 
-const values = [
-  ['Sustainability First', 'Responsible sourcing, recyclable packaging, waste recovery initiatives, and eco-conscious business practices.'],
-  ['Responsibility', 'We take ownership of our environmental footprint and continuously work to protect natural resources.'],
-  ['Innovation', 'Modern solutions for smarter recycling systems, sustainable packaging alternatives, and efficient resource management.'],
-  ['Community Impact', 'Awareness programs, recycling initiatives, and partnerships that encourage environmental responsibility.'],
-  ['Quality & Purity', 'Clean, safe, refreshing drinking water with high quality standards at the core of operations.'],
-  ['Transparency', 'Honest communication, ethical practices, and long-term trust with customers, partners, and communities.'],
+const storyParagraphs = [
+  'At Lyris, we believe hydration should never come at the cost of the planet.',
+  'Founded with a vision to redefine the bottled water industry, Lyris combines purity, responsibility, and innovation to create products that support both people and the environment. We are more than a water bottle company — we are a movement toward smarter consumption, responsible recycling, and sustainable living.',
+  'Every bottle we produce is designed with a larger purpose: reducing waste, encouraging recycling awareness, and contributing to a circular future where plastic is reused, recovered, and responsibly managed.',
+  'In a world where convenience often creates environmental challenges, Lyris is committed to building a better balance. Through sustainable packaging initiatives, recycling partnerships, community awareness programs, and environmentally conscious operations, we aim to inspire change one bottle at a time.',
+  'Our mission goes beyond delivering clean and refreshing water. We are creating a culture where consumers, communities, businesses, and future generations can all participate in protecting the planet.',
+  'At Lyris, sustainability is not a campaign — it is the foundation of everything we do.',
 ];
 
-const circular = ['Responsible Packaging', 'Consumer Awareness', 'Collection & Recovery', 'Recycling & Reuse', 'Building a Cleaner Future'];
-const initiatives = ['Promoting responsible PET bottle disposal', 'Supporting recycling and collection systems', 'Encouraging bottle segregation awareness', 'Collaborating with recyclers and environmental organizations', 'Reducing unnecessary plastic waste', 'Investing in circular economy practices', 'Educating communities about sustainable habits'];
+const sections = [
+  { title: 'Company Story', body: 'Lyris was built to modernize bottled water through purity, responsible packaging, recycling awareness, and reliable supply for real-world customers.' },
+  { title: 'Mission', body: 'To deliver clean, refreshing water while helping consumers and businesses participate in smarter consumption and environmental responsibility.' },
+  { title: 'Vision', body: 'To become a trusted sustainable hydration brand that encourages a circular future where packaging is reused, recovered, and responsibly managed.' },
+  { title: 'Sustainability Commitment', body: 'We support responsible packaging initiatives, recycling partnerships, awareness programs, and environmentally conscious operations.' },
+  { title: 'Why Lyris Exists', body: 'Lyris exists to prove that premium hydration can be convenient, beautiful, reliable, and planet-aware at the same time.' },
+  { title: 'Our Promise', body: 'We promise quality and purity in every product, transparent communication, dependable service, and a long-term commitment to a cleaner future.' },
+];
 
 export default function About() {
   return (
     <>
-      <section className="about-hero relative overflow-hidden text-[#12352f]">
-        <div className="absolute inset-0 opacity-70" />
-        <div className="section-shell relative grid min-h-[calc(100svh-102px)] items-center gap-12 py-12 lg:grid-cols-[1.08fr_.92fr]">
-          <AnimatedSection>
-            <p className="text-sm font-black uppercase tracking-[.28em] text-[#53247b]">About Lyris</p>
-            <h1 className="mt-5 font-syne text-5xl font-black leading-[.95] tracking-[-.05em] sm:text-6xl lg:text-7xl">Hydration should never come at the cost of the planet.</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-700">Founded to redefine bottled water, Lyris combines purity, responsibility, and innovation to support both people and the environment.</p>
-          </AnimatedSection>
-          <AnimatedSection className="editorial-frame p-3">
-            <div className="min-h-[430px] rounded-[2rem] bg-drift product-image" style={{ backgroundImage: "linear-gradient(135deg, rgba(167,243,208,.18), rgba(83,36,123,.42)), url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1600&auto=format&fit=crop')" }} />
-          </AnimatedSection>
+      <section className="relative overflow-hidden bg-[#fbf8ff] px-4 py-20 text-slate-900 sm:px-6 lg:px-8" aria-labelledby="about-title">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(83,36,123,.14),transparent_30%),radial-gradient(circle_at_85%_15%,rgba(14,165,233,.12),transparent_28%)]" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_.9fr]">
+          <FadeIn>
+            <p className="text-xs font-black uppercase tracking-[0.34em] text-[#53247b]">About Us</p>
+            <h1 id="about-title" className="mt-5 text-5xl font-black leading-[0.92] tracking-[-0.07em] text-[#321548] sm:text-7xl"><SplitWords text="Hydration with a cleaner purpose." /></h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">At Lyris, sustainability is not a campaign — it is the foundation of everything we do.</p>
+          </FadeIn>
+          <FadeIn delay={0.12} className="overflow-hidden rounded-[2.5rem] border border-[#53247b]/10 bg-white p-3 shadow-[0_30px_90px_-48px_rgba(83,36,123,.8)]">
+            <div className="min-h-[420px] rounded-[2rem] bg-cover bg-center" style={{ backgroundImage: "linear-gradient(145deg, rgba(83,36,123,.18), rgba(83,36,123,.56)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1600&auto=format&fit=crop')" }} />
+          </FadeIn>
         </div>
       </section>
 
-      <AnimatedSection className="section-shell">
-        <div className="soft-panel p-8 sm:p-12 lg:p-14">
-          <p className="text-sm font-black uppercase tracking-[.28em] text-[#53247b]">Company story</p>
-          <div className="mt-5 grid gap-8 lg:grid-cols-[.75fr_1.25fr]"><h2 className="font-syne text-4xl font-black tracking-[-.04em] text-[#321548] sm:text-5xl">A movement toward smarter consumption and sustainable living.</h2><div className="space-y-5 text-lg leading-8"><p>We are more than a water bottle company. Every bottle we produce is designed with a larger purpose: reducing waste, encouraging recycling awareness, and contributing to a circular future where plastic is reused, recovered, and responsibly managed.</p><p>Through sustainable packaging initiatives, recycling partnerships, community awareness programs, and environmentally conscious operations, we aim to inspire change one bottle at a time.</p><p>At Lyris, sustainability is not a campaign — it is the foundation of everything we do.</p></div></div>
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection className="section-shell grid gap-6 lg:grid-cols-2">
-        <article className="soft-panel hover-lift p-8 sm:p-10"><p className="text-sm font-black uppercase tracking-[.24em] text-[#53247b]">Our mission</p><h2 className="mt-4 font-syne text-4xl font-black text-[#321548]">Safe water with long-term positive impact.</h2><p className="mt-5 text-lg leading-8">To provide safe, high-quality drinking water while building a sustainable ecosystem that promotes responsible plastic use, effective recycling, environmental awareness, and long-term positive impact on communities and the planet.</p><p className="mt-4 leading-7">We aim to transform the way people think about bottled water by ensuring every product contributes to a cleaner and more responsible future.</p></article>
-        <article className="soft-panel hover-lift p-8 sm:p-10"><p className="text-sm font-black uppercase tracking-[.24em] text-[#53247b]">Our vision</p><h2 className="mt-4 font-syne text-4xl font-black text-[#321548]">A circular future where every bottle is reborn.</h2><p className="mt-5 text-lg leading-8">To become a globally trusted sustainable hydration brand that leads the transition toward a circular economy where every bottle is collected, recycled, and reborn into new possibilities.</p><p className="mt-4 leading-7">We envision a future where waste is minimized, recycling becomes a daily habit, and businesses actively contribute to environmental restoration.</p></article>
-      </AnimatedSection>
-
-      <section className="relative overflow-hidden bg-[#f4eeff]">
-        <div className="blob -right-24 top-12 h-96 w-96 bg-cyan-200/50" />
-        <div className="section-shell relative">
-          <AnimatedSection className="mx-auto mb-12 max-w-3xl text-center"><p className="text-sm font-black uppercase tracking-[.28em] text-[#53247b]">Our values</p><h2 className="mt-3 font-syne text-4xl font-black tracking-[-.04em] text-[#321548] sm:text-5xl">Principles behind every drop.</h2></AnimatedSection>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{values.map(([title, body], index) => <AnimatedSection key={title} as="article" delay={index * 80} className="soft-panel hover-lift p-6"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#53247b]/10 text-[#53247b]">✺</span><h3 className="mt-5 font-syne text-2xl font-bold text-[#321548]">{title}</h3><p className="mt-3 leading-7">{body}</p></AnimatedSection>)}</div>
+      <section className="bg-white px-4 py-20 text-slate-900 sm:px-6 lg:px-8" aria-labelledby="story-title">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.75fr_1.25fr]">
+          <FadeIn>
+            <p className="text-xs font-black uppercase tracking-[0.34em] text-[#53247b]">Company Story</p>
+            <h2 id="story-title" className="mt-4 text-4xl font-black leading-tight tracking-[-0.055em] text-[#321548] sm:text-6xl">A movement toward smarter consumption.</h2>
+          </FadeIn>
+          <div className="space-y-5 text-lg leading-9 text-slate-600">
+            {storyParagraphs.map((paragraph, index) => <FadeIn key={paragraph} delay={index * 0.035}><p>{paragraph}</p></FadeIn>)}
+          </div>
         </div>
       </section>
 
-      <AnimatedSection className="section-shell">
-        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr]">
-          <div><p className="text-sm font-black uppercase tracking-[.28em] text-[#53247b]">Sustainability commitment</p><h2 className="mt-4 font-syne text-4xl font-black tracking-[-.04em] text-[#321548] sm:text-5xl">We choose to become part of the solution.</h2><p className="mt-5 text-lg leading-8">Plastic waste is one of the world’s biggest environmental challenges. We believe plastic should never pollute nature when it can be reused, recycled, and transformed into something valuable again.</p></div>
-          <div className="grid gap-4 sm:grid-cols-2">{initiatives.map((item) => <div key={item} className="soft-panel p-5"><p className="font-semibold text-[#321548]">{item}</p></div>)}</div>
-        </div>
-      </AnimatedSection>
-
-      <section className="relative overflow-hidden brand-grad text-white">
-        <div className="absolute inset-0 water-grid" />
-        <div className="section-shell relative">
-          <AnimatedSection className="mx-auto mb-12 max-w-3xl text-center"><p className="text-sm font-black uppercase tracking-[.28em] text-cyan-100">The Lyris circular approach</p><h2 className="mt-3 font-syne text-4xl font-black tracking-[-.04em] sm:text-6xl">Reducing waste and maximizing reuse.</h2></AnimatedSection>
-          <div className="relative mx-auto max-w-5xl"><div className="absolute left-6 top-0 hidden h-full w-1 rounded-full timeline-line md:block" />{circular.map((step, index) => <AnimatedSection key={step} className="relative mb-5 md:pl-20" delay={index * 100}><div className="glass-card p-6"><span className="mb-3 inline-grid h-12 w-12 place-items-center rounded-full bg-white font-black text-[#53247b]">{index + 1}</span><h3 className="font-syne text-2xl font-bold">{step}</h3><p className="mt-2 text-white/75">{index === 0 ? 'We design bottles using recyclable materials that can re-enter the recycling ecosystem.' : index === 1 ? 'We educate consumers about proper disposal and segregation practices.' : index === 2 ? 'We support initiatives that improve collection systems and recycling accessibility.' : index === 3 ? 'Used PET bottles are processed and transformed into reusable materials for future applications.' : 'By encouraging circular practices, we help reduce landfill waste and environmental pollution.'}</p></div></AnimatedSection>)}</div>
+      <section className="bg-[#fbf8ff] px-4 py-20 text-slate-900 sm:px-6 lg:px-8" aria-labelledby="about-sections-title">
+        <div className="mx-auto max-w-7xl">
+          <FadeIn className="max-w-3xl">
+            <p className="text-xs font-black uppercase tracking-[0.34em] text-[#53247b]">Mission, Vision & Promise</p>
+            <h2 id="about-sections-title" className="mt-4 text-4xl font-black leading-tight tracking-[-0.055em] text-[#321548] sm:text-6xl">The principles behind every Lyris bottle.</h2>
+          </FadeIn>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {sections.map((section, index) => (
+              <FadeIn key={section.title} delay={index * 0.05} as="article" className="rounded-[2rem] border border-[#53247b]/10 bg-white p-7 shadow-[0_24px_70px_-48px_rgba(83,36,123,.8)]">
+                <h3 className="text-2xl font-black tracking-[-0.045em] text-[#321548]">{section.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{section.body}</p>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
-      <AnimatedSection className="section-shell">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="soft-panel p-8 sm:p-10"><p className="text-sm font-black uppercase tracking-[.28em] text-[#53247b]">Why Lyris exists</p><h2 className="mt-4 font-syne text-4xl font-black tracking-[-.04em] text-[#321548]">The world does not need more waste.</h2><p className="mt-5 text-lg leading-8">It needs better systems, better habits, and more responsible brands. Lyris proves that bottled water can deliver convenience while actively supporting environmental responsibility.</p><ul className="mt-6 space-y-3 font-semibold text-[#321548]"><li>• Hydrate responsibly</li><li>• Recycle consciously</li><li>• Protect the environment for future generations</li></ul></div>
-          <div className="soft-panel p-8 sm:p-10"><p className="text-sm font-black uppercase tracking-[.28em] text-[#53247b]">Our promise</p><h2 className="mt-4 font-syne text-4xl font-black tracking-[-.04em] text-[#321548]">Every choice can create meaningful change.</h2><p className="mt-5 text-lg leading-8">When you choose Lyris, you choose clean and reliable hydration, responsible packaging, sustainability-driven innovation, environmental awareness, and a brand committed to positive impact.</p><div className="mt-8"><ContactOptions /></div></div>
+      <section className="bg-white px-4 py-20 text-slate-900 sm:px-6 lg:px-8" aria-labelledby="values-title">
+        <div className="mx-auto max-w-7xl">
+          <FadeIn className="text-center">
+            <p className="text-xs font-black uppercase tracking-[0.34em] text-[#53247b]">Core Values</p>
+            <h2 id="values-title" className="mt-4 text-4xl font-black tracking-[-0.055em] text-[#321548] sm:text-6xl">What we stand for.</h2>
+          </FadeIn>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {coreValues.map((value, index) => (
+              <FadeIn key={value} delay={index * 0.04} className="rounded-full border border-[#53247b]/10 bg-[#fbf8ff] px-6 py-5 text-center font-black text-[#321548] shadow-[0_18px_48px_-42px_rgba(83,36,123,.9)]">
+                {value}
+              </FadeIn>
+            ))}
+          </div>
         </div>
-      </AnimatedSection>
+      </section>
+
+      <SourceHeritage />
+
+      <section className="bg-white px-4 py-20 text-slate-900 sm:px-6 lg:px-8" aria-labelledby="process-title">
+        <div className="mx-auto max-w-7xl text-center">
+          <FadeIn>
+            <p className="text-xs font-black uppercase tracking-[0.34em] text-[#53247b]">Circular Economy Process</p>
+            <h2 id="process-title" className="mt-4 text-4xl font-black tracking-[-0.055em] text-[#321548] sm:text-6xl">The Lyris Circular Approach.</h2>
+          </FadeIn>
+          <div className="mt-12 grid gap-4 md:grid-cols-5">
+            {circularApproach.map((item, index) => <FadeIn key={item} delay={index * 0.04} className="rounded-[2rem] bg-[#53247b] p-5 text-white"><span className="text-3xl font-black">{index + 1}</span><p className="mt-4 text-sm font-black">{item}</p></FadeIn>)}
+          </div>
+        </div>
+      </section>
+
+      <ContactCTA />
     </>
   );
 }
